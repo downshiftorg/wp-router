@@ -91,11 +91,11 @@ class Router
     }
 
     /**
-     * Dispatch the route if a match is found
+     * Dispatch the route if a match is found. Returns an array with the route and its result
      *
      * @param string $method
      * @param array $params
-     * @return mixed
+     * @return array
      */
     public function dispatch($method = '', $params = array())
     {
@@ -104,7 +104,7 @@ class Router
         }
 
         $method = strtolower($method);
-        
+
         if (empty($params)) {
             $params = $this->getSuperGlobals($method);
         }
@@ -115,7 +115,21 @@ class Router
 
         $route = $this->getResolvedRoute($method, $params);
 
-        return $route->dispatch();
+        return array($route, $route->dispatch());
+    }
+
+    /**
+     * Listen for a request and fire the responder if a match is found. Exits after making the request
+     *
+     * @return void
+     */
+    public function listen()
+    {
+        $result = $this->dispatch();
+
+        if ($result) {
+            exit;
+        }
     }
 
     /**
