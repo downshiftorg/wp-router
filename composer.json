@@ -1,0 +1,24 @@
+{
+    "name": "netrivet/wp-router",
+    "description": "A simple router WordPress plugins and themes",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Brian Scaturro",
+            "email": "scaturrob@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/container": "~4.1.0"
+    },
+    "require-dev": {
+        "peridot-php/peridot": "^1.15",
+        "peridot-php/leo": "^1.4"
+    },
+    "autoload": {
+      "psr-4": {
+        "NetRivet\\WordPress\\": "src/"
+      }
+    }
+}
