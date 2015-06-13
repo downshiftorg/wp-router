@@ -17,18 +17,40 @@ describe('Route', function () {
         });
         $route->bind($this->container);
 
-        $route->dispatch();
+        $route->resolve();
 
         expect($injected)->to->be->instanceof('Rad\DependencyImpl');
     });
 
-    it('should be able to dispatch a route if container not bound', function () {
+    it('should be able to resolve dependencies of a class responder', function () {
+        $route = new Route('slug', 'Rad\Responder');
+        $route->bind($this->container);
+
+        $dep = $route->resolve();
+
+        expect($dep)->to->be->an->instanceof('Rad\DependencyImpl');
+    });
+
+    it('should be able to resolve dependencies registered as a factory', function () {
+        $container = new Container();
+        $container->bind('Rad\DependencyInterface', function () {
+           return new \Rad\DependencyImpl();
+        });
+        $route = new Route('slug', 'Rad\Responder');
+        $route->bind($container);
+
+        $dep = $route->resolve();
+
+        expect($dep)->to->be->an->instanceof('Rad\DependencyImpl');
+    });
+
+    it('should be able to resolve a route if container not bound', function () {
         $executed = false;
         $route = new Route('slug', function (DependencyInterface $ignoreMe) use (&$executed) {
             $executed = true;
         });
 
-        $route->dispatch();
+        $route->resolve();
 
         expect($executed)->to->be->true;
     });

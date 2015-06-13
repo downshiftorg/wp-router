@@ -115,7 +115,7 @@ class Router
 
         $route = $this->getResolvedRoute($method, $params);
 
-        return array($route, $route->dispatch());
+        return array($route, $route->resolve());
     }
 
     /**
