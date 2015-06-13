@@ -49,7 +49,8 @@ $router->get('/test', function (SomeInterface $service) {
 });
 ```
 
-If resolving a class, the constructor will have dependencies injected.
+If resolving a class, the constructor will have dependencies injected. Resolution of classes is only
+valid when using a string.
 
 ##tests
 
