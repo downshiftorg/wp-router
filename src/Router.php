@@ -106,7 +106,7 @@ class Router
         $method = strtolower($method);
 
         if (empty($params)) {
-            $params = $this->getSuperGlobals($method);
+            $params = $_REQUEST;
         }
 
         if (! isset($params[$this->getScopeParameter()])) {
@@ -150,20 +150,5 @@ class Router
         }
 
         return $route;
-    }
-
-    /**
-     * Return the super global array relevant to the request method
-     *
-     * @param string $method
-     * @return array
-     */
-    protected function getSuperGlobals($method)
-    {
-        if ($method === 'get') {
-            return $_GET;
-        }
-
-        return $_POST;
     }
 }

@@ -80,24 +80,13 @@ describe('Router', function () {
             expect($executed)->to->be->false;
         });
 
-        it('should use the $_GET super global to match when dispatching a get route', function () {
-            $_GET = ['scoped_action' => '/custom-endpoint'];
+        it('should use the $_REQUEST super global to match when dispatching a route', function () {
+            $_REQUEST = ['scoped_action' => '/custom-endpoint'];
             $this->router->get('/custom-endpoint', function () use (&$executed) {
                 $executed = true;
             });
 
             $this->router->dispatch('GET');
-
-            expect($executed)->to->be->true;
-        });
-
-        it('should use the $_POST super global to match when dispatching a post route', function () {
-            $_POST = ['scoped_action' => '/custom-endpoint'];
-            $this->router->post('/custom-endpoint', function () use (&$executed) {
-                $executed = true;
-            });
-
-            $this->router->dispatch('POST');
 
             expect($executed)->to->be->true;
         });
@@ -118,7 +107,7 @@ describe('Router', function () {
         });
 
         it('should use $_SERVER[REQUEST_METHOD] to determine parameters if no arguments provided', function () {
-            $_GET = ['scoped_action' => '/custom-endpoint'];
+            $_REQUEST = ['scoped_action' => '/custom-endpoint'];
             $_SERVER = ['REQUEST_METHOD' => 'GET'];
             $this->router->get('/custom-endpoint', function () use (&$executed) {
                 $executed = true;
