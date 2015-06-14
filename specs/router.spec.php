@@ -117,6 +117,20 @@ describe('Router', function () {
 
             expect($executed)->to->be->true;
         });
+
+        it('should dispatch a registered $_POST route when scope param is in the query string', function () {
+            $_GET = ['scoped_action' => '/custom-endpoint'];
+            $_SERVER = ['REQUEST_METHOD' => 'POST'];
+
+            $executed = false;
+            $this->router->post('/custom-endpoint', function () use (&$executed) {
+                $executed = true;
+            });
+
+            $this->router->dispatch();
+
+            expect($executed)->to->be->true;
+        });
     });
 
 });
