@@ -1,6 +1,6 @@
 {
     "name": "netrivet/wp-router",
-    "description": "A simple router WordPress plugins and themes",
+    "description": "A simple router for WordPress plugins and themes",
     "type": "library",
     "license": "MIT",
     "authors": [
