@@ -1,5 +1,5 @@
 <?php
-use Illuminate\Container\Container;
+use NetRivet\Container\Container;
 use NetRivet\WordPress\Route;
 use Rad\DependencyInterface;
 

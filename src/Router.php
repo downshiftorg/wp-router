@@ -2,7 +2,7 @@
 
 namespace NetRivet\WordPress;
 
-use Illuminate\Container\Container;
+use NetRivet\Container\Container;
 
 class Router
 {
