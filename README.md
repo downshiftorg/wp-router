@@ -35,7 +35,7 @@ $router->post('/myroute', 'NetRivet\Responders\SomeClass');
 
 ##service injection
 
-Services in route functions are resolved using a PHP 5.3 friendly version of the [Illuminate Container](https://github.com/illuminate/container)
+Services in route functions are resolved using a PHP 5.3 friendly version of the [Illuminate Container](https://github.com/netrivet/container)
 
 
 ```php
