@@ -1,4 +1,4 @@
-#wp-router
+#wp-router [![Build Status](https://travis-ci.org/netrivet/wp-router.svg?branch=master)](https://travis-ci.org/netrivet/wp-router)
 
 A simple scoped router powered by query string parameters.
 
