@@ -1,8 +1,8 @@
 <?php
 
-namespace NetRivet\WordPress;
+namespace DownShift\WordPress;
 
-use NetRivet\Container\Container;
+use DownShift\Container\Container;
 
 class Route
 {

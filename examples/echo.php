@@ -1,5 +1,5 @@
 <?php
-use NetRivet\WordPress\Router;
+use DownShift\WordPress\Router;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 

@@ -1,4 +1,4 @@
-#wp-router [![Build Status](https://travis-ci.org/netrivet/wp-router.svg?branch=master)](https://travis-ci.org/netrivet/wp-router)
+# wp-router [![Build Status](https://travis-ci.org/downshiftorg/wp-router.svg?branch=master)](https://travis-ci.org/downshiftorg/wp-router)
 
 A simple scoped router powered by query string parameters.
 
@@ -6,12 +6,12 @@ Though this has use outside of WordPress (for now), it is meant for use
 within the WordPress ecosystem as a means to add custom routes without
 specific page scripts.
 
-##usage
+## usage
 
 The router matches a get or post request to a responder. A responder is a function or an invokable class.
 
 ```php
-use NetRivet\WordPress\Router;
+use DownShift\WordPress\Router;
 
 $router = new Router('my_scope');
 
@@ -30,12 +30,12 @@ You can also give a route definition an invokable class.
 $router->post('/myroute', new InvokableClass());
 
 // or a string if you prefer
-$router->post('/myroute', 'NetRivet\Responders\SomeClass');
+$router->post('/myroute', 'DownShift\Responders\SomeClass');
 ```
 
-##service injection
+## service injection
 
-Services in route functions are resolved using a PHP 5.3 friendly version of the [Illuminate Container](https://github.com/netrivet/container)
+Services in route functions are resolved using a PHP 5.3 friendly version of the [Illuminate Container](https://github.com/downshiftorg/container)
 
 
 ```php
@@ -52,7 +52,7 @@ $router->get('/test', function (SomeInterface $service) {
 If resolving a class, the constructor will have dependencies injected. Resolution of classes is only
 valid when using a string.
 
-##tests
+## tests
 
 Tests are written using [peridot](http://peridot-php.github.io/), and can be run like so:
 
