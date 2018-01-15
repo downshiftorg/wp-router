@@ -1,7 +1,7 @@
 <?php
 namespace Rad;
 
-class DependencyImpl
+class DependencyImpl implements DependencyInterface
 {
 
 }

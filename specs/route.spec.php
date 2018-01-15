@@ -1,6 +1,6 @@
 <?php
-use NetRivet\Container\Container;
-use NetRivet\WordPress\Route;
+use DownShift\Container\Container;
+use DownShift\WordPress\Route;
 use Rad\DependencyInterface;
 
 describe('Route', function () {
@@ -42,16 +42,5 @@ describe('Route', function () {
         $dep = $route->resolve();
 
         expect($dep)->to->be->an->instanceof('Rad\DependencyImpl');
-    });
-
-    it('should be able to resolve a route if container not bound', function () {
-        $executed = false;
-        $route = new Route('slug', function (DependencyInterface $ignoreMe) use (&$executed) {
-            $executed = true;
-        });
-
-        $route->resolve();
-
-        expect($executed)->to->be->true;
     });
 });

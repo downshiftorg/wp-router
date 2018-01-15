@@ -1,6 +1,6 @@
 <?php
-use NetRivet\Container\Container;
-use NetRivet\WordPress\Router;
+use DownShift\Container\Container;
+use DownShift\WordPress\Router;
 use Rad\DependencyInterface;
 
 describe('Router', function () {
@@ -26,7 +26,7 @@ describe('Router', function () {
 
             $route = $this->router->get('/custom-endpoint', $responder);
 
-            expect($route)->to->be->an->instanceof('NetRivet\WordPress\Route');
+            expect($route)->to->be->an->instanceof('DownShift\WordPress\Route');
             expect($route->getSlug())->to->equal('/custom-endpoint');
             expect($route->getResponder())->to->equal($responder);
         });
@@ -40,7 +40,7 @@ describe('Router', function () {
 
             $route = $this->router->post('/custom-endpoint', $responder);
 
-            expect($route)->to->be->an->instanceof('NetRivet\WordPress\Route');
+            expect($route)->to->be->an->instanceof('DownShift\WordPress\Route');
             expect($route->getSlug())->to->equal('/custom-endpoint');
             expect($route->getResponder())->to->equal($responder);
         });
