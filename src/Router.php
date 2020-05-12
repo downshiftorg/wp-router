@@ -142,6 +142,7 @@ class Router
     protected function getResolvedRoute($method, $params)
     {
         $scope = $params[$this->getScopeParameter()];
+        $scope = apply_filters('downshift_router_scope', $scope);
 
         $route = $this->routes[$method][$scope];
 
