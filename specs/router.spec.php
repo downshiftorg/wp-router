@@ -1,5 +1,5 @@
 <?php
-use DownShift\Container\Container;
+use Illuminate\Container\Container;
 use DownShift\WordPress\Router;
 use Rad\DependencyInterface;
 
