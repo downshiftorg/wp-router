@@ -2,7 +2,7 @@
 
 namespace DownShift\WordPress;
 
-use DownShift\Container\Container;
+use Illuminate\Container\Container;
 
 class Router
 {
